@@ -158,7 +158,7 @@ class Bugs extends React.Component {
         this.state = {
             bugs: [],
             formMode: "new",
-            bug: { title: "", description: "", issue_type: "", priority: "", status: "", id: "9999999" }
+            bug: { title: "", description: "", issue_type: "", priority: "", status: "", id: "99999" }
         };
         this.loadBugs = this.loadBugs.bind(this);
         this.removeBug = this.removeBug.bind(this);
@@ -185,7 +185,7 @@ class Bugs extends React.Component {
 
     loadBugs() {
         axios
-            .get(`${API_BASE}bugs.json`)
+            .get(`${API_BASE}/bugs.json`)
             .then(res => {
                 this.setState({ bugs: res.data });
                 console.log(`Data loaded! = ${this.state.bugs}`)
@@ -195,7 +195,7 @@ class Bugs extends React.Component {
 
     addBug(newBug) {
         axios
-            .post(`${API_BASE}bugs.json`, newBug)
+            .post(`${API_BASE}/bugs.json`, newBug)
             .then(res => {
                 res.data.key = res.data.id;
                 this.setState({ bugs: [...this.state.bugs, res.data] });
@@ -204,7 +204,7 @@ class Bugs extends React.Component {
     }
     updateBug(bug) {
         axios
-            .put(`${API_BASE}bugs/${bug.id}.json`, bug)
+            .put(`${API_BASE}/bugs/${bug.id}.json`, bug)
             .then(res => {
                 this.loadBugs();
             })
@@ -214,7 +214,7 @@ class Bugs extends React.Component {
         let filteredArray = this.state.bugs.filter(item => item.id !== id)
         this.setState({ bugs: filteredArray });
         axios
-            .delete(`${API_BASE}bugs/${id}.json`)
+            .delete(`${API_BASE}/bugs/${id}.json`)
             .then(res => {
                 console.log(`Record Deleted`);
                 //this.clearForm();
@@ -231,7 +231,7 @@ class Bugs extends React.Component {
 
     clearForm() {
         console.log("clear form");
-        this.updateForm("new", { title: "", description: "", issue_type: "", priority: "", status: "", id: "99999999" });
+        this.updateForm("new", { title: "", description: "", issue_type: "", priority: "", status: "", id: "99999" });
     }
 
     formSubmitted(bug) {
