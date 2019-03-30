@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import axios from 'axios';
 
-const API_BASE = '/api/';
+const API_BASE = 'http://localhost:3000/';
 //const API_BASE = "https://jrd-bugtracker.herokuapp.com/";
 
 class BugForm extends React.Component {
