@@ -26,10 +26,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": {
-    "/api/": {
-      "target": "https://jrd-bugtracker.herokuapp.com/",
-      "secure": false
-      }
-    }
+  "proxy": "https://jrd-bugtracker.herokuapp.com/"
 }
