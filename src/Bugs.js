@@ -181,7 +181,9 @@ class Bugs extends React.Component {
                     bug={this.state.bug}
                     key={this.state.bug.id}
                 />
-                <BugList bugs={this.state.bugs} />
+                <BugList bugs={this.state.bugs} 
+                onDelete={(id) => this.removeBug(id)}
+                onEdit={(mode,bug) => this.updateForm(mode,bug)}/>
             </div>
         );
     }
